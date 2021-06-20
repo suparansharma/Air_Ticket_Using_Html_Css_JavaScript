@@ -123,6 +123,19 @@
         const firstClassTicketTotalPrice = firstClassTicketNewCount * 150;
         document.getElementById('firstClass-totalCost').innerText = firstClassTicketTotalPrice;
     })
+
+
+    document.getElementById('firstClass-ticket-decrease').addEventListener('click',function(){
+
+        const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
+        const firstClassTicketCount = parseInt(firstClassTicketInput.value);
+        const firstClassTicketNewCount = firstClassTicketCount - 1;
+        firstClassTicketInput.value = firstClassTicketNewCount;
+        const firstClassTicketTotalPrice = firstClassTicketNewCount * 150;
+        document.getElementById('firstClass-totalCost').innerText = firstClassTicketTotalPrice;
+
+
+    })
 </SCript>
 
 </html>
