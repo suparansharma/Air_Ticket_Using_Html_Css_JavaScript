@@ -167,11 +167,11 @@
         const firstClassTicketCount = getInputValue('firstClass');
         const economyTicketCount = getInputValue('economy');
 
-        const subTotalPrice = firstClassTicketCount * 150 + economyTicketCount + 100;
+        const subTotalPrice = firstClassTicketCount * 150 + economyTicketCount * 100;
         document.getElementById('sub-total-price').innerText = subTotalPrice;
 
 
-        const tax = subTotalPrice * 0.1;
+        const tax =Math.round(subTotalPrice * 0.1);
         document.getElementById('tax').innerText = tax;
 
 
