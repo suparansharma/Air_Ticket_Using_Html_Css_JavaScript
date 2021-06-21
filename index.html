@@ -118,29 +118,49 @@
 
 <SCript>
 
+
+
+
+
     document.getElementById('firstClass-ticket-increase').addEventListener('click',function(){
-
-        const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
-        const firstClassTicketCount = parseInt(firstClassTicketInput.value);
-        const firstClassTicketNewCount = firstClassTicketCount + 1;
-        firstClassTicketInput.value = firstClassTicketNewCount;
-        const firstClassTicketTotalPrice = firstClassTicketNewCount * 150;
-        document.getElementById('firstClass-totalCost').innerText = firstClassTicketTotalPrice;
+    
+        handleFirstClassTicketChange(true);
+        
     })
-
 
     document.getElementById('firstClass-ticket-decrease').addEventListener('click',function(){
 
+        handleFirstClassTicketChange(false);
+
+
+})
+
+
+    function handleFirstClassTicketChange(isIncrease){
+
+
         const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
         const firstClassTicketCount = parseInt(firstClassTicketInput.value);
-        const firstClassTicketNewCount = firstClassTicketCount - 1;
+        let firstClassTicketNewCount = firstClassTicketCount;
+        if(isIncrease == true){
+
+            firstClassTicketNewCount = firstClassTicketCount + 1;
+        }
+
+        if(isIncrease == false && firstClassTicketCount > 0){
+
+            firstClassTicketNewCount = firstClassTicketCount - 1;
+
+        }
         firstClassTicketInput.value = firstClassTicketNewCount;
         const firstClassTicketTotalPrice = firstClassTicketNewCount * 150;
         document.getElementById('firstClass-totalCost').innerText = firstClassTicketTotalPrice;
 
+        
+    }
 
-    })
 
+    
 
 
     document.getElementById('economy-ticket-increase').addEventListener('click',function(){
