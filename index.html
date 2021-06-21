@@ -161,33 +161,41 @@
 
 
     
-
+    
 
     document.getElementById('economy-ticket-increase').addEventListener('click',function(){
 
-        const EconomyTicketInput = document.getElementById('economy-ticket-count');
-        const economyTicketCount = parseInt(EconomyTicketInput.value);
-        const economyTicketNewCount =economyTicketCount + 1; 
-        EconomyTicketInput.value = economyTicketNewCount;
-        const EconomyTicketTotalPrice = economyTicketNewCount * 100;
-        document.getElementById('economy-totalCost').innerText =EconomyTicketTotalPrice;
+        handleEconomyTicketChange(true);
 
+       
     })
 
     document.getElementById('economy-ticket-decrease').addEventListener('click',function(){
 
-        const EconomyTicketInput = document.getElementById('economy-ticket-count');
-        const EconomyTicketCount = parseInt(EconomyTicketInput.value);
-        const EconomyTicketNewCount = EconomyTicketCount - 1;
-        EconomyTicketInput.value = EconomyTicketNewCount;
-        const EconomyTicketTotalPrice = EconomyTicketNewCount * 100;
-        document.getElementById('economy-totalCost').innerText = EconomyTicketTotalPrice;
+        handleEconomyTicketChange(false);
+})
+
+
+    function handleEconomyTicketChange(isIncrease){
+
+
+        const economyTicketInput = document.getElementById('economy-ticket-count');
+        const economyTicketCount = parseInt(economyTicketInput.value);
+        let economyTicketNewCount = economyTicketCount;
+        if(isIncrease == true){
+            economyTicketNewCount = economyTicketCount + 1;
+        } 
+
+        if(isIncrease == false && economyTicketCount > 0){
+            economyTicketNewCount =economyTicketCount - 1;
+        } 
+        economyTicketInput.value = economyTicketNewCount;
+        const EconomyTicketTotalPrice = economyTicketNewCount * 100;
+        document.getElementById('economy-totalCost').innerText =EconomyTicketTotalPrice;
 
 
 
-
-
-    })
+}
 </SCript>
 
 </html>
