@@ -85,7 +85,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$<span id="sub-total-price">500</span></p>
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$<span id="tax"> 50</span></p>
                     </div>
                 </div>
                 <hr>
@@ -103,7 +103,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$<span id="total">550</span></p>
                     </div>
                 </div>
             </div>
@@ -154,12 +154,40 @@
         }
 
         document.getElementById(ticket + '-totalCost').innerText = TicketPrice;
+        calculateTotal();
 
 
     }
 
 
 
+    function calculateTotal(){
+
+        
+        const firstClassTicketCount = getInputValue('firstClass');
+        const economyTicketCount = getInputValue('economy');
+
+        const subTotalPrice = firstClassTicketCount * 150 + economyTicketCount + 100;
+        document.getElementById('sub-total-price').innerText = subTotalPrice;
+
+
+        const tax = subTotalPrice * 0.1;
+        document.getElementById('tax').innerText = tax;
+
+
+        
+
+
+    }
+
+    function getInputValue(product){
+
+        const TicketInput = document.getElementById(product + '-ticket-count');
+        const TicketCount = parseInt(TicketInput.value);
+        return TicketCount;
+
+
+    }
 
 
 
