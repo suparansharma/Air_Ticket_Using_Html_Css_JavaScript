@@ -2,12 +2,16 @@
 
 ## Features
 
-- front end design
+- Buy ticket
+- Select date 
+- Select ticket amount
+- See memo
 
 
 ## Technology Used:
 - HTML
 - CSS
 - BOOTSTRAP
+- JAVASCRIPT
 
 
